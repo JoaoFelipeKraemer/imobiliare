@@ -21,17 +21,16 @@ Client.init({
       allowNull: false,
     },
     role: {
-        type: STRING,
-        allowNull: false,
+      type: STRING,
+      allowNull: false,
     },
     passwordHash: {
-        type: STRING,
-        allowNull: false,
-        field: 'password_hash',
+      type: STRING,
+      allowNull: false,
     },
     name: {
-        type: STRING,
-        allowNull: false
+      type: STRING,
+      allowNull: false
     },
 }, {
     sequelize: db,
