@@ -38,4 +38,6 @@ Client.init({
     modelName: 'client',
     underscored: true,
     timestamps: false,
-  })
+});
+
+export default Client;
