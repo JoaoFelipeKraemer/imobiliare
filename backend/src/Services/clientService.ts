@@ -34,4 +34,12 @@ export default class ClientService {
         return clientWithoutPassword;
       }
     }
+
+    getRole = async(emailX:string) => {
+        const client = await clientModel.findOne({where: {email: emailX}})
+        if (!client) {
+            return null;
+          }
+        return client?.role;
+    }
 }

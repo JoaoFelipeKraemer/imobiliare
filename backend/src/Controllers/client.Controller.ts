@@ -16,7 +16,7 @@ export default class ClientController {
         if(userId === null) {
             return res.status(409).send({message: 'Cliente já registrado'})
         }
-        return res.status(200).send({message: 'Cliente registrado'})
+        return res.status(201).send({message: 'Cliente registrado'})
     }
 
     login = async (req:Request, res:Response) => {
@@ -29,5 +29,14 @@ export default class ClientController {
         const token = jwt.sign({id: user.idClient}, secret, { algorithm: 'HS256', expiresIn: '1d' });
         return res.status(200).json({ token, id: user.idClient});
         }
+    }
+
+    getRole = async(req:Request, res:Response) => {
+        const { email } = req.body
+        const client = await this._service.getRole(email)
+        if (!client) {
+            return res.status(401).json({ message: 'erro'})
+          }
+        return res.status(200).json({role: client});
     }
 }

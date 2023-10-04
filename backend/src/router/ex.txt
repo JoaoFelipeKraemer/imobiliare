@@ -5,11 +5,10 @@ criarClient - Check
 
 login - Check
 
+getRole - Check
+
+updateRole - 
+
 getImoveisClient
-
-getRole
-
-updateRole
-
 --------------
 role: locador, locatario, comprador, vendedor, default
