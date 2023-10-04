@@ -1,6 +1,6 @@
 import { ModelStatic } from "sequelize";
 
-const bcrypt = require('bcryptjs');
+import bcrypt from 'bcryptjs';
 const salt = bcrypt.genSaltSync(10);
 
 import clientModel from '../database/models/client'
@@ -23,7 +23,7 @@ export default class ClientService {
         }
     }
 
-    login = async() => {
+    // login = async() => {
         
-    }
+    // }
 }

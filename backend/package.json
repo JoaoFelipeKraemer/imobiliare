@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npm run build && node ./dist/index.js",
-    "dev": "tsnd ./src/index.ts",
+    "start": "npm run build && node ./dist/server.js",
+    "dev": "tsnd ./src/server.ts",
     "db:reset": "npx -y tsc && npx sequelize-cli db:drop && npx sequelize-cli db:create",
     "migrate:seed": "npx sequelize db:migrate && npx sequelize db:seed:all",
     "build": "tsc"
@@ -22,6 +22,7 @@
     "sequelize": "^6.33.0"
   },
   "devDependencies": {
+    "@types/bcryptjs": "^2.4.4",
     "@types/express": "^4.17.18",
     "@types/node": "^20.7.0",
     "@types/sequelize": "^4.28.16",
