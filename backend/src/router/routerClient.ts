@@ -10,5 +10,6 @@ const clientController = new ClientController(clientService)
 const routerClient = express.Router();
 
 routerClient.post('/register', clientController.createClient)
+routerClient.post('/login', clientController.login)
 
 export default routerClient

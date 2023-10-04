@@ -1,6 +1,6 @@
 import { ModelStatic } from "sequelize";
 
-import bcrypt from 'bcryptjs';
+const bcrypt = require('bcryptjs');
 const salt = bcrypt.genSaltSync(10);
 
 import clientModel from '../database/models/client'
@@ -23,7 +23,15 @@ export default class ClientService {
         }
     }
 
-    // login = async() => {
-        
-    // }
+    login = async(emailX:string, password: string) => {
+      const client = await clientModel.findOne({ where: { email: emailX} });
+      if (!client) {
+        return null;
+      }
+      const hash = bcrypt.compareSync(password, client.dataValues.passwordHash);
+      if(hash) {
+        const { password: _, ...clientWithoutPassword } = client.dataValues
+        return clientWithoutPassword;
+      }
+    }
 }

@@ -3,7 +3,7 @@ Client
 ---------------
 criarClient - Check
 
-login
+login - Check
 
 getImoveisClient
 
