@@ -42,4 +42,13 @@ export default class ClientService {
           }
         return client?.role;
     }
+
+    updateRole = async(id: number, valor: string) => {
+        const client = await clientModel.findOne({where: {id_client: id}})
+        client?.update(
+            {
+                role: valor
+            }
+        )
+    }
 }

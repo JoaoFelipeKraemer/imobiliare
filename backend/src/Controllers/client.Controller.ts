@@ -39,4 +39,12 @@ export default class ClientController {
           }
         return res.status(200).json({role: client});
     }
+
+    updateRole = async(req:Request, res:Response) => {
+        const { payload } = req.body.user;
+        const { role } = req.body;
+        await this._service.updateRole(payload.id, role)
+        return res.status(200).json({message: 'role alterada com sucesso'})
+        
+    }
 }
