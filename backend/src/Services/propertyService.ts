@@ -52,4 +52,13 @@ export default class PropertyService {
         const prop = await propertyModel.findAll()
         return prop;
       }
+    
+    getByAdress = async(address: string) => {
+      const client = await propertyModel.findAll({where: { address }})
+
+      if(!client) {
+        return null;
+      }
+      return client;
+    }  
 }

@@ -29,4 +29,12 @@ export default class PropertyController {
         const all = await this._service.getAll()
         return res.status(200).json(all)
     }
+    getByAdress = async(req:Request, res:Response) => {
+        const { address } = req.body;
+        const client = await this._service.getByAdress(address)
+        if(!client){
+            return res.status(401).json({message: 'NOTHING HERE MODAFUCKA'})
+        }
+        return res.status(200).json(client)
+    }
 }
