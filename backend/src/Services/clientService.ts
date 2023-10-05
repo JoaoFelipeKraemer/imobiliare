@@ -51,4 +51,9 @@ export default class ClientService {
             }
         )
     }
+
+    getAll = async() => {
+      const client = await clientModel.findAll( { attributes: {exclude: ['passwordHash']}})
+      return client;
+    }
 }

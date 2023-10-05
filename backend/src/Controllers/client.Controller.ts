@@ -47,4 +47,9 @@ export default class ClientController {
         return res.status(200).json({message: 'role alterada com sucesso'})
         
     }
+
+    getAll = async(req:Request, res:Response) => {
+        const all = await this._service.getAll()
+        return res.status(200).json(all)
+    }
 }

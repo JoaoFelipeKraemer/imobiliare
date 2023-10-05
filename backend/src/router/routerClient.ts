@@ -14,6 +14,7 @@ const routerClient = express.Router();
 routerClient.post('/register', clientController.createClient)
 routerClient.post('/login', clientController.login)
 routerClient.get('/role', auth, clientController.getRole)
+routerClient.get('/all', auth, clientController.getAll)
 routerClient.put('/role', auth, role, clientController.updateRole)
 
 export default routerClient
