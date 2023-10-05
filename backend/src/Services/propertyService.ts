@@ -47,4 +47,9 @@ export default class PropertyService {
             return null;
         }
     }
+
+    getAll = async() => {
+        const prop = await propertyModel.findAll()
+        return prop;
+      }
 }

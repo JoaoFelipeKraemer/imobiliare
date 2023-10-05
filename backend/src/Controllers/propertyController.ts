@@ -25,5 +25,8 @@ export default class PropertyController {
         }
         return res.status(201).send({message: 'Imóvel registrado'})
     }
-
+    getAll = async(req:Request, res:Response) => {
+        const all = await this._service.getAll()
+        return res.status(200).json(all)
+    }
 }

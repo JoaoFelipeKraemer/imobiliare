@@ -21,13 +21,13 @@ role: locador, locatario, comprador, vendedor, default
 
 Property -
 
-criarProperty - addres-complement-city-state-price-availability
+criarProperty - addres-complement-city-state-price-availability - Check
                 priceForSale?null priceForRent? availabilitySale? availabilityRent?
 
-getById - Check
+getById - 
 
-getRole - Check
-                
+getAll - 
+
 updateProperty -
 
 deleteProperty
