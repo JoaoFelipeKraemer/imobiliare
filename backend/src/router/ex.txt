@@ -26,7 +26,15 @@ criarProperty - addres-complement-city-state-price-availability - Check
 
 getById - 
 
-getAll - 
+getAll - Check
+
+getByAdress - Check
+
+getByAvailability- Check
+
+getByCity - Check
+
+getByState - Check
 
 updateProperty -
 

@@ -85,4 +85,12 @@ export default class PropertyService {
         }
         return client;
       }
+    getByPrice = async(price:number) => {
+        const client = await propertyModel.findAll({where: {  price: price }})
+  
+        if(!client) {
+          return null;
+        }
+        return client;
+      }
 }
