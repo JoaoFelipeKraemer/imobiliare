@@ -46,4 +46,12 @@ export default class PropertyController {
         }
         return res.status(200).json(client)
     }
+    getByState = async(req:Request, res:Response) => {
+        const { state } = req.body;
+        const client = await this._service.getByState(state)
+        if(!client){
+            return res.status(401).json({message: 'NOTHING HERE MODAFUCKA'})
+        }
+        return res.status(200).json(client)
+    }
 }
