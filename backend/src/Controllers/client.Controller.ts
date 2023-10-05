@@ -52,4 +52,13 @@ export default class ClientController {
         const all = await this._service.getAll()
         return res.status(200).json(all)
     }
+
+    getById = async(req:Request, res:Response) => {
+        const { idClient } = req.params;
+        const client = await this._service.getById(Number(idClient))
+        if(!client){
+            return res.status(401).json({message: 'user not found'})
+        }
+        return res.status(200).json(client)
+    }
 }

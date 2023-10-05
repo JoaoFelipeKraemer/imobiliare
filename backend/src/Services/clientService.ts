@@ -56,4 +56,14 @@ export default class ClientService {
       const client = await clientModel.findAll( { attributes: {exclude: ['passwordHash']}})
       return client;
     }
+
+    getById = async(id:number) => {
+      const client = await clientModel.findOne({where: {id_client: id}, attributes:
+      {exclude: ['passwordHash']}})
+
+      if(!client) {
+        return null;
+      }
+      return client;
+    }
 }
