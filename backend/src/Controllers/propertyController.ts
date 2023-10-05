@@ -54,4 +54,12 @@ export default class PropertyController {
         }
         return res.status(200).json(client)
     }
+    getByAvailability = async(req:Request, res:Response) => {
+        const { availability } = req.body;
+        const client = await this._service.getByAvailability(availability)
+        if(!client){
+            return res.status(401).json({message: 'NOTHING HERE MODAFUCKA'})
+        }
+        return res.status(200).json(client)
+    }
 }

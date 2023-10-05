@@ -77,4 +77,12 @@ export default class PropertyService {
         }
         return client;
       }
+    getByAvailability = async(availability:string) => {
+        const client = await propertyModel.findAll({where: {  availability: availability }})
+  
+        if(!client) {
+          return null;
+        }
+        return client;
+      }
 }
