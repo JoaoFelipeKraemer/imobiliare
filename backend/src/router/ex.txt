@@ -5,9 +5,9 @@ criarClient - Check
 
 login - Check
 
-getAll
+getAll - Check
 
-getById
+getById - Check
 
 getRole - Check
 
@@ -23,6 +23,11 @@ Property -
 
 criarProperty - addres-complement-city-state-price-availability
                 priceForSale?null priceForRent? availabilitySale? availabilityRent?
+
+getById - Check
+
+getRole - Check
+                
 updateProperty -
 
 deleteProperty
