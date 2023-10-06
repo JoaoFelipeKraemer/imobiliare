@@ -18,6 +18,7 @@ routerClient.get('/client', auth, clientController.getAll)
 routerClient.get('/client/:idClient', auth, clientController.getById)
 routerClient.put('/role', auth, role, clientController.updateRole)
 routerClient.put('/edit', auth, clientController.uptate)
+routerClient.delete('/delete', auth, clientController.deleteClient)
 
 
 export default routerClient

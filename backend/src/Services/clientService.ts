@@ -66,6 +66,14 @@ export default class ClientService {
           }
       );
   }
+  deleteClient = async(id:number) => {
+    const client = await clientModel.findOne({ where: {id_client: id}})
+    if(!client) {
+      return null
+    }
+    await clientModel.destroy({where: {id_client: id}})
+    return 1;
+  }
 
     getAll = async() => {
       const client = await clientModel.findAll( { attributes: {exclude: ['passwordHash']}})

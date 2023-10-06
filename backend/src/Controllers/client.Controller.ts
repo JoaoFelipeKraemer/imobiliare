@@ -71,4 +71,13 @@ export default class ClientController {
         }
         return res.status(200).json(client)
     }
+
+    deleteClient = async(req:Request, res: Response) => {
+        const { payload } = req.body.user;
+        const deleter = await this._service.deleteClient(payload.id)
+        if(deleter == 1) {
+            return res.status(200).json({message: 'sucess'})
+        }
+        return res.status(401).json({message: 'user not found'})
+    }
 }
