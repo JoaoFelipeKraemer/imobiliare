@@ -52,6 +52,21 @@ export default class ClientService {
         )
     }
 
+    update = async(id: number, email: string, password: string, name:string) => {
+      const client = await clientModel.findOne({where: {id_client: id}})
+      const hash = bcrypt.hashSync(password, salt)
+      if(!client) {
+        return null;
+      }
+      client?.update(
+          {   
+            email,
+            password_hash: hash,
+            name
+          }
+      );
+  }
+
     getAll = async() => {
       const client = await clientModel.findAll( { attributes: {exclude: ['passwordHash']}})
       return client;

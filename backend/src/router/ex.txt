@@ -13,6 +13,8 @@ getRole - Check
 
 updateRole - Check
 
+updateAll - Check
+
 getImoveisClient
 --------------
 role: locador, locatario, comprador, vendedor, default

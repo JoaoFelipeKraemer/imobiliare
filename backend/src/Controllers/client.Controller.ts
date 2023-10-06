@@ -48,6 +48,16 @@ export default class ClientController {
         
     }
 
+    uptate = async (req:Request, res:Response) => {
+        const { payload } = req.body.user;
+        const { email, password, name } = req.body;
+        const possibleNull = await this._service.update(payload.id, email, password, name)
+        if(possibleNull === null) {
+          return  res.status(400).json({message: 'deu ruim'})
+        }
+        return res.status(200).json({message: 'role alterada com sucesso'})
+    }
+
     getAll = async(req:Request, res:Response) => {
         const all = await this._service.getAll()
         return res.status(200).json(all)

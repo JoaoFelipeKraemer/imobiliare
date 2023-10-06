@@ -14,7 +14,7 @@ const routerProperty = express.Router();
 
 routerProperty.post('/register', auth, propertyController.createProperty)
 routerProperty.get('/all', auth, propertyController.getAll)
-routerProperty.get('/address', auth, addressCheck, propertyController.getByAdress)
+routerProperty.get('/address', auth, propertyController.getByAdress)
 routerProperty.get('/city', auth, propertyController.getByCity)
 routerProperty.get('/state', auth, propertyController.getByState)
 routerProperty.get('/availability', auth, propertyController.getByAvailability)
