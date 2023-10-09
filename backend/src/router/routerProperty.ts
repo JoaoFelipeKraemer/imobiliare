@@ -19,6 +19,7 @@ routerProperty.get('/city', auth, propertyController.getByCity)
 routerProperty.get('/state', auth, propertyController.getByState)
 routerProperty.get('/availability', auth, propertyController.getByAvailability)
 routerProperty.get('/price', auth, propertyController.getByPrice)
+// routerProperty.put('/edit', auth, propertyController.update)
 
 
 

@@ -15,9 +15,8 @@ updateRole - Check
 
 updateAll - Check
 
-deleteClient - 
+deleteClient - Check
 
-getImoveisClient
 --------------
 role: locador, locatario, comprador, vendedor, default
 
@@ -28,7 +27,6 @@ Property -
 criarProperty - addres-complement-city-state-price-availability - Check
                 priceForSale?null priceForRent? availabilitySale? availabilityRent?
 
-getById - 
 
 getAll - Check
 
@@ -40,6 +38,14 @@ getByCity - Check
 
 getByState - Check
 
-updateProperty -
+updateProperty - Stand By
 
-deleteProperty
+deleteProperty - Stand By
+
+****************************
+
+Owner -
+
+postOwner
+
+getImoveisClient

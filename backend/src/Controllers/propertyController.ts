@@ -10,6 +10,7 @@ export default class PropertyController {
 
     createProperty = async (req: Request, res: Response) => {
         const { address, complement, city, state, price, availability } = req.body;
+        const { payload } = req.body.user;
         const x = 
         {
             address,
@@ -19,7 +20,7 @@ export default class PropertyController {
             price,
             availability
         }
-        const prop = await this._service.createProperty(x as Property)
+        const prop = await this._service.createProperty(x as Property, payload.id)
         if(prop === null) {
             return res.status(409).send({message: 'Imóvel já registrado'})
         }
@@ -71,4 +72,21 @@ export default class PropertyController {
         }
         return res.status(200).json(client)
     }
+    // update = async(req:Request, res:Response) => {
+    //     const { address, complement, city, state, price, availability } = req.body;
+    //     const x = 
+    //     {
+    //         address,
+    //         complement,
+    //         city,
+    //         state,
+    //         price,
+    //         availability
+    //     }
+    //     const possibleNull = await this._service.update(x as Property)
+    //     if(possibleNull === null) {
+    //         return  res.status(400).json({message: 'deu ruim'})
+    //       }
+    //       return res.status(200).json({message: 'role alterada com sucesso'})
+    // }
 }

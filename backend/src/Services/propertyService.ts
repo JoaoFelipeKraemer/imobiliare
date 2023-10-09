@@ -2,6 +2,7 @@ import { ModelStatic } from "sequelize";
 
 
 import propertyModel from '../database/models/property'
+import ownerModel from '../database/models/owner'
 import Property from "../interfaces/property";
 
 export default class PropertyService {
@@ -10,7 +11,7 @@ export default class PropertyService {
         this._model = model;
     }
 
-    createProperty = async(prop:Property) => {
+    createProperty = async(prop:Property, idx:number) => {
         if(prop.complement === undefined) {
             const propriedade = await propertyModel.findOne({ where: { address: prop.address } });
             if(!propriedade) {
@@ -22,9 +23,15 @@ export default class PropertyService {
                        price: prop.price,
                        availability: prop.availability,
                    }
-                 const newUser = await propertyModel
-                 .create(newProp)
-                 return newUser;
+                 const newUser = await propertyModel.create(newProp);
+                const blabla = (Number(newUser.idProperty))
+                const blablax = (Number(idx))
+                console.log(blabla, blablax)
+
+                if (blablax !== null && blabla !== null) {
+                  await ownerModel.create({ clientIdClient: blablax, propertyIdProperty: blabla });
+              }
+                return newUser;
                }if(propriedade){
                    return null;
                }
@@ -40,8 +47,15 @@ export default class PropertyService {
                 price: prop.price,
                 availability: prop.availability,
             }
-          const newUser = await propertyModel
-          .create(newProp)
+          const newUser = await propertyModel.create(newProp)
+
+          const blabla = (Number(newUser.idProperty))
+          const blablax = (Number(idx))
+          console.log(blabla, blablax)
+          if (blablax !== null && blabla !== null) {
+            await ownerModel.create({ clientIdClient: blablax, propertyIdProperty: blabla });
+        }
+
           return newUser;
         }if(propriedade){
             return null;
@@ -93,4 +107,21 @@ export default class PropertyService {
         }
         return client;
       }
+    // update = async(prop:Property) => {
+    //   const property = await propertyModel.findOne({ where: { address: prop.address,
+    //     complement: prop.complement } })
+    //   if(!property) {
+    //     return null;
+    //   }
+    //   property?.update(
+    //     {
+    //       address: prop.address,
+    //       complement: prop.complement === null? null: prop.complement,
+    //       city: prop.city,
+    //       state: prop.state,
+    //       price: prop.price,
+    //       availability: prop.availability,
+    //     }
+    //   );
+    // }  
 }
