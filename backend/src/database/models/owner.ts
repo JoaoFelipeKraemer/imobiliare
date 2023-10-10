@@ -41,12 +41,12 @@ Owner.init(
     modelName: 'owners',
     underscored: true,
     timestamps: false,
-    // indexes: [
-    //   {
-    //     unique: true, // Composite primary key is unique
-    //     fields: ['clientIdClient', 'propertyIdProperty'],
-    //   },
-    // ],
+    indexes: [
+      {
+        unique: true, // Composite primary key is unique
+        fields: ['clientIdClient', 'propertyIdProperty'],
+      },
+    ],
   }
 );
 
